@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'social_food_theme.dart';
 
 void main() {
   runApp(const SocialFood());
@@ -7,19 +8,39 @@ void main() {
 class SocialFood extends StatelessWidget {
   const SocialFood({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    // TODO: Create theme
+    final theme = SocialFoodTheme.darkTheme;
     // TODO: Apply Home widget
     return MaterialApp(
-      // TODO: Add theme
+      theme: theme,
       title: 'Social Food',
       home: Scaffold(
-        // TODO: Style the title
-        appBar: AppBar(title: const Text('Social Food')),
-        // TODO: Style the body text
-        body: const Center(child: Text('Let\'s get cooking 👩‍🍳')),
+        appBar: AppBar(
+          title: Text(
+            'Social Food',
+            style: theme.textTheme.headline6,
+          ),
+        ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'Let\'s get cooking 👩‍🍳',
+                style: theme.textTheme.headline1,
+              ),
+              TextButton(
+                child: const Text('Share recipe'),
+                onPressed: () {},
+              ),
+              IconButton(
+                icon: const Icon(Icons.alarm),
+                onPressed: () {},
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
